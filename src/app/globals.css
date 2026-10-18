@@ -1,26 +1,179 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-paper: #f3f1eb;
+  --color-paper-2: #eae7de;
+  --color-ink: #17181a;
+  --color-ink-2: #55575b;
+  --color-ink-3: #646569;
+  --color-rule: #d6d2c7;
+  --color-accent: #a8322a;
+  --color-leaf: #3f5b3a;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-3);
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 75rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Section reveal (see components/reveal.tsx). Only below-the-fold blocks are ever hidden. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal[data-reveal="pending"] {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  .reveal[data-reveal="done"] {
+    transition:
+      opacity 500ms cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+}
+
+/* Hero inference frame: boxes draw in once, a scan line passes once. */
+@media (prefers-reduced-motion: no-preference) {
+  .draw-in {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 900ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+  .fade-in {
+    opacity: 0;
+    animation: fade 500ms ease-out forwards;
+  }
+  .scan-line {
+    animation: scan 1800ms cubic-bezier(0.45, 0, 0.25, 1) 200ms both;
+  }
+}
+
+/* Hero portrait (components/hero-portrait.tsx). --px/--py are set from JS in [-0.5, 0.5]. */
+.portrait-tilt {
+  transform: perspective(1100px) rotateX(calc(var(--py, 0) * -4deg))
+    rotateY(calc(var(--px, 0) * 5deg));
+}
+.portrait-photo {
+  transform: scale(1.05) translate(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -14px));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-in > * {
+    animation: rise 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .hero-in > :nth-child(2) { animation-delay: 60ms; }
+  .hero-in > :nth-child(3) { animation-delay: 120ms; }
+  .hero-in > :nth-child(4) { animation-delay: 180ms; }
+  .hero-in > :nth-child(5) { animation-delay: 240ms; }
+
+  .portrait-in .portrait-tilt {
+    animation: unveil 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 120ms both;
+  }
+  .detect-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw 700ms cubic-bezier(0.2, 0.7, 0.2, 1) 850ms forwards;
+  }
+  .portrait-tag {
+    opacity: 0;
+    animation: fade 400ms ease-out 1300ms forwards;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@keyframes unveil {
+  from {
+    clip-path: inset(10% 0 0 0);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0);
+    opacity: 1;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(var(--scan-distance, 360px));
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .scan-line {
+    display: none;
+  }
 }

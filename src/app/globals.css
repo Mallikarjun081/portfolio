@@ -42,15 +42,6 @@ body {
   border-radius: 2px;
 }
 
-@utility label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-ink-3);
-}
-
 @utility container-page {
   width: 100%;
   max-width: 75rem;

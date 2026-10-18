@@ -23,12 +23,10 @@ const ARM = 56;
 export function HeroPortrait({
   src,
   alt,
-  caption,
   tag,
 }: {
   src: StaticImageData;
   alt: string;
-  caption: [string, string];
   tag: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -98,7 +96,7 @@ export function HeroPortrait({
   ];
 
   return (
-    <figure className="portrait-in group">
+    <div className="portrait-in group">
       <div ref={ref} className="relative p-3 sm:p-4">
         {/* viewfinder crop marks, fixed while the photo moves */}
         <span aria-hidden="true" className="absolute top-0 left-0 size-5 border-t-[1.5px] border-l-[1.5px] border-ink" />
@@ -142,10 +140,6 @@ export function HeroPortrait({
           </svg>
         </div>
       </div>
-      <figcaption className="mt-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-3 sm:px-4">
-        <span className="label whitespace-nowrap">{caption[0]}</span>
-        <span className="label whitespace-nowrap">{caption[1]}</span>
-      </figcaption>
-    </figure>
+    </div>
   );
 }

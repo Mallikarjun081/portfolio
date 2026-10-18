@@ -3,7 +3,7 @@ import { ButtonLink } from "@/components/button-link";
 export default function NotFound() {
   return (
     <div className="container-page py-28 md:py-40">
-      <p className="label">404</p>
+      <p className="text-ink-3">Error 404</p>
       <h1 className="mt-5 max-w-2xl font-serif text-5xl leading-[1.05] tracking-tight md:text-6xl">
         This page doesn’t exist.
       </h1>

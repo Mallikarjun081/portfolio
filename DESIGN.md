@@ -130,3 +130,35 @@ like a printed notebook.
 - One column. Section labels sit above the content rather than in the margin.
 - The hero visual moves below the text, buttons go full width, and project previews stack.
 - The metadata column on detail pages becomes an inline block above the body.
+
+## 3. Revision: removing template tells (2026-10-18)
+
+A review of the live site against Mobbin found patterns that read as "AI-generated portfolio".
+The [Lovable](https://mobbin.com/screens/d9550298-d9ea-4821-94d8-8e31f15f94e1) and
+[Bolt.new](https://mobbin.com/screens/87eea851-37be-4b83-b3d2-f11adbe23b27) results on Mobbin show
+what those builders produce: "Selected Work" eyebrows, ghost "01" numbers, category pills and icon
+grids. Sites made by people, such as
+[Locomotive's project index](https://mobbin.com/sites/sections/280c1a2d-41d4-4495-a4bd-816763c93ad3),
+[Polywork](https://mobbin.com/screens/f8d0e856-762c-4287-9178-34e7933d7b59), and the write-ups from
+[Linear](https://mobbin.com/sites/sections/80c656f5-2d5d-494c-bbe6-64b63f78ff9b) and
+[Tailscale](https://mobbin.com/sites/sections/2aa17c2a-b721-440c-8fe0-83544d7afdd0), use
+sentence-case headings, plain lists and prose.
+
+Changes:
+
+- Uppercase mono labels are gone from the UI. Section labels became sentence-case serif headings, and
+  categories, captions, contact rows and the project sidebar now use plain text. Mono remains only
+  inside the technical diagrams.
+- Numbering is removed: no 01/02/03 on projects or skills, and no "Next project · 02". Pipeline
+  steps use a plain ordered list.
+- The hero byline "NAME // ROLE" became "Hi, I'm Mallikarjun Deshmukh.", and the "FIG. 01" caption
+  is gone.
+- The filler sentence under "Projects" is removed. Cards show a sentence-case kind, the title, the
+  summary, the stack as plain text, and "View project".
+- The project pages had six sections (Overview, Problem, Objective, My contribution, Technical
+  approach, Outcome & learnings). They now have four: Overview, What I did, How it works and Result.
+  The duplicate objective text and the generic "learnings", which didn't come from the resume, are
+  removed.
+- Skills are rows (group, then list) instead of a grid of five numbered cards. Certifications sit
+  under Education instead of having their own section. Contact leads with the email address.
+- About is rewritten in plain first person, with no filler sentence.

@@ -36,9 +36,9 @@ export const hero = {
 
 export const about = {
   paragraphs: [
-    "I studied Artificial Intelligence and Machine Learning at Global Academy of Technology, Bangalore. My projects put models inside working systems: a camera-equipped robot that detects plant disease, an API that serves student performance predictions, and a web app that recommends career paths.",
-    "My hands-on work spans Python, machine learning, data processing and software development. I have a strong foundation in object-oriented programming, data structures and algorithms, SQL and REST APIs, and I’ve worked with Pandas, NumPy, Scikit-learn, Django, OpenCV and TensorFlow Lite.",
-    "I’m especially interested in AI-driven automation and computational science, and I enjoy the problem-solving, teamwork and communication that building these systems involves.",
+    "I studied Artificial Intelligence and Machine Learning (B.Tech, 2022–2026) at Global Academy of Technology in Bangalore. Before that, I went to school and PU college in Kalaburagi.",
+    "Most of what I build is in Python, and my projects tend to put a model inside something larger: a robot that sprays crops, an API that serves predictions, a web app that people click through. Along the way I’ve worked with Pandas, NumPy, Scikit-learn, OpenCV, TensorFlow Lite and Django.",
+    "I’m interested in AI-driven automation and computational science, and I want to keep building practical systems like these.",
   ],
 };
 

@@ -14,14 +14,10 @@ export function Hero() {
     <section aria-labelledby="hero-heading" className="container-page">
       <div className="grid gap-12 pt-12 pb-20 md:grid-cols-12 md:items-center md:gap-8 md:pt-16 lg:gap-12 lg:pt-20 lg:pb-28">
         <div className="hero-in md:col-span-7">
-          <p className="label">
-            <span className="text-ink">{profile.name}</span>
-            <span aria-hidden="true">{" // "}</span>
-            {profile.role}
-          </p>
+          <p className="text-lg text-ink-2">Hi, I’m {profile.name}.</p>
           <h1
             id="hero-heading"
-            className="mt-6 font-serif text-[42px] leading-[1.03] tracking-[-0.02em] text-balance sm:text-[54px] md:text-[46px] lg:text-[62px] xl:text-[72px]"
+            className="mt-4 font-serif text-[42px] leading-[1.03] tracking-[-0.02em] text-balance sm:text-[54px] md:text-[46px] lg:text-[62px] xl:text-[72px]"
           >
             {hero.headline}
           </h1>
@@ -76,7 +72,6 @@ export function Hero() {
             src={profile.photo.src}
             alt={profile.photo.alt}
             tag="MALLIKARJUN"
-            caption={["Fig. 01", "Python · ML · Computer vision"]}
           />
         </div>
       </div>
